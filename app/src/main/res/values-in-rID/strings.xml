@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github User</string>
+    <string name="following">"mengikuti : "</string>
+    <string name="followers">pengikut :</string>
+    <string name="language_setting">Pengaturan Bahasa</string>
+    <string name="reminder_setting">Pengaturan Pengingat</string>
+    <string name="search">Pencarian</string>
+    <string name="company">Institusi :</string>
+    <string name="location">Lokasi :</string>
+    <string-array name="menu_follow">
+        <item>Pengikut</item>
+        <item>Mengikuti</item>
+    </string-array>
+</resources>

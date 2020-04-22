@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Github User</string>
+    <string name="name_of_user" translatable="false">name of user</string>
+    <string name="following">following :</string>
+    <string name="followers">followers :</string>
+    <string name="language_setting">Language Setting</string>
+    <string name="reminder_setting">Reminder Setting</string>
+    <string name="search">Search</string>
+    <string name="username" translatable="false">username</string>
+    <string name="hint_search_user" translatable="false">Dicoding Indonesia</string>
+    <string name="company">Company :</string>
+    <string name="location">Location :</string>
+    <string-array name="menu_follow">
+        <item>Followers</item>
+        <item>Following</item>
+    </string-array>
+</resources>
