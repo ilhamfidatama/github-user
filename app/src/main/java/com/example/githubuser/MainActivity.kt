@@ -51,9 +51,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.language_setting -> startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
-            R.id.reminder_setting -> {
-                //todo go to reminder setting activity
-            }
+            R.id.reminder_setting -> startActivity(Intent(this, AppsSettings::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
