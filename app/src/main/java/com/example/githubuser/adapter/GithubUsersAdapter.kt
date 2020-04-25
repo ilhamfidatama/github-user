@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubuser.DetailUserActivity
 import com.example.githubuser.R
-import com.example.githubuser.Utils
+import com.example.githubuser.helper.Utils
 import com.example.githubuser.model.GithubUser
 import kotlinx.android.synthetic.main.user_github_list.view.*
 

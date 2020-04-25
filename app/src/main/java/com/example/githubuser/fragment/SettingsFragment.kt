@@ -10,11 +10,10 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.example.githubuser.R
-import com.example.githubuser.Utils
+import com.example.githubuser.helper.Utils
 import com.example.githubuser.receivers.NotificationReceiver
 import com.example.githubuser.receivers.NotificationReceiver.Companion.NOTIF_TYPE
 import java.util.*
-import kotlin.collections.ArrayList
 
 class SettingsFragment: PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
     private lateinit var appContext: Context

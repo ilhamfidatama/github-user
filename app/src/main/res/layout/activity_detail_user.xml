@@ -8,6 +8,14 @@
     tools:context=".DetailUserActivity">
 
     <ImageView
+        android:id="@+id/btn_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/app_name" />
+
+    <ImageView
         android:id="@+id/avatar_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

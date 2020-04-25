@@ -8,7 +8,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.example.githubuser.R
-import com.example.githubuser.Utils
+import com.example.githubuser.helper.Utils
 
 class NotificationReceiver: BroadcastReceiver() {
     private val CHANNEL_ID = "githubUsers01"
