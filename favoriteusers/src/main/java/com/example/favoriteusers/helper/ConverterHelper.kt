@@ -1,8 +1,8 @@
-package com.example.githubuser.helper
+package com.example.favoriteusers.helper
 
 import android.database.Cursor
-import com.example.githubuser.contract.DatabaseContract
-import com.example.githubuser.model.GithubUser
+import com.example.favoriteusers.contract.DatabaseContract
+import com.example.favoriteusers.model.GithubUser
 
 object ConverterHelper {
     fun convertCursorToArrayList(cursor: Cursor?): ArrayList<GithubUser>{
@@ -17,14 +17,13 @@ object ConverterHelper {
         return users
     }
 
-    fun convertCursorToObject(cursor: Cursor?): GithubUser{
+    fun convertCursorToObject(cursor: Cursor?): GithubUser {
         var user = GithubUser()
         cursor?.apply {
             moveToFirst()
             val username = getString(getColumnIndexOrThrow(DatabaseContract.GithubUsersColumn.USERNAME))
             val avatar_url = getString(getColumnIndexOrThrow(DatabaseContract.GithubUsersColumn.AVATAR_URL))
-            val id = getString(getColumnIndexOrThrow(DatabaseContract.GithubUsersColumn.USER_ID))
-            user = GithubUser(login = username, avatar_url = avatar_url, id = id.toLong())
+            user = GithubUser(login = username, avatar_url = avatar_url)
         }
         return user
     }

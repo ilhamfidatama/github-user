@@ -2,9 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-androidExtensions{
-    experimental = true
-}
 
 android {
     compileSdkVersion 29
@@ -29,23 +26,6 @@ android {
         }
     }
 
-    flavorDimensions 'version'
-    productFlavors {
-        favoriteusers {
-            dimension 'version'
-            minSdkVersion 21
-            applicationId "com.example.favoriteusers"
-            versionNameSuffix 'favorite_users'
-        }
-
-        githubusers {
-            dimension 'version'
-            minSdkVersion 21
-            applicationId "com.example.githubuser"
-            versionNameSuffix 'github_user'
-        }
-    }
-
 }
 
 dependencies {
@@ -64,6 +44,6 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
+    debugImplementation 'com.idescout.sql:sqlscout-server:4.1'
+    releaseImplementation 'com.idescout.sql:sqlscout-server-noop:4.1'
 }

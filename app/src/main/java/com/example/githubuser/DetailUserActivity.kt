@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.githubuser.adapter.MenuFollowAdapter
@@ -15,6 +16,8 @@ import kotlinx.android.synthetic.main.activity_detail_user.*
 import com.example.githubuser.contract.DatabaseContract.GithubUsersColumn.Companion.GITHUB_USERS_URI
 import com.example.githubuser.contract.DatabaseContract.GithubUsersColumn.Companion.USERNAME
 import com.example.githubuser.contract.DatabaseContract.GithubUsersColumn.Companion.AVATAR_URL
+import com.example.githubuser.contract.DatabaseContract.GithubUsersColumn.Companion.USER_ID
+import com.example.githubuser.helper.ConverterHelper
 
 class DetailUserActivity : AppCompatActivity() {
     companion object{
@@ -31,6 +34,7 @@ class DetailUserActivity : AppCompatActivity() {
         val userProfile = intent.getParcelableExtra(USER_PROFILE) as GithubUser
         loadDetailUser(userProfile.login)
         menu = resources.getStringArray(R.array.menu_follow)
+        isFavorite = isFavoriteUser(userProfile.id)
         setFavorite(isFavorite)
         val menuAdapter = MenuFollowAdapter(menu, userProfile.login, supportFragmentManager)
         follow_content.adapter = menuAdapter
@@ -39,7 +43,7 @@ class DetailUserActivity : AppCompatActivity() {
         btn_favorite.setOnClickListener {
             isFavorite = !isFavorite
             setFavorite(isFavorite)
-            if (isFavorite) saveToFavoriteUsers(userProfile) else discardFromFavoriteUsers()
+            if (isFavorite) saveToFavoriteUsers(userProfile) else discardFromFavoriteUsers(userProfile.id)
         }
     }
 
@@ -69,10 +73,26 @@ class DetailUserActivity : AppCompatActivity() {
         val values = ContentValues()
         values.put(USERNAME, user.login)
         values.put(AVATAR_URL, user.avatar_url)
-        contentResolver.insert(GITHUB_USERS_URI, values)
+        values.put(USER_ID, user.id)
+        val cr = contentResolver.insert(GITHUB_USERS_URI, values)
+        Log.e("saved", "${cr?.lastPathSegment}")
     }
 
-    private fun discardFromFavoriteUsers(){
+    private fun discardFromFavoriteUsers(userID: Long){
+        val uri = Uri.parse("$GITHUB_USERS_URI/$userID")
         contentResolver.delete(uri, null, null)
+    }
+
+    private fun isFavoriteUser(userID: Long): Boolean{
+        val uri = Uri.parse("$GITHUB_USERS_URI/$userID")
+        val cursor = contentResolver.query(uri, null, null, null, null)
+        Log.e("isFavoriteUser", "found:${cursor?.count} || cursor:${cursor}")
+        if (cursor != null && cursor.count != 0){
+            val data = ConverterHelper.convertCursorToObject(cursor)
+            Log.e("isFavoriteUser", "username:${data.login}")
+            cursor.close()
+            return true
+        }
+        return false
     }
 }

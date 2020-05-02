@@ -32,8 +32,8 @@ class GithubUsersProvider: ContentProvider() {
         }
         context?.contentResolver?.notifyChange(GITHUB_USERS_URI, null)
 
-        Log.e("content-provider", "$add")
-        return Uri.parse("$GITHUB_USERS_URI/$add")
+        Log.e("content-provider", "${values?.get("user_id")}")
+        return Uri.parse("$GITHUB_USERS_URI/${values?.get("user_id")}")
     }
 
     override fun query(
@@ -44,6 +44,8 @@ class GithubUsersProvider: ContentProvider() {
         sortOrder: String?
     ): Cursor? {
         val cursor: Cursor?
+        Log.e("query", "$uri")
+        Log.e("uriMatch", "${uriMatcher.match(uri)}")
         when(uriMatcher.match(uri)){
             GITHUB_USERS -> cursor = githubUsersHelper.queryAll()
             USERNAME_GITHUB_USER -> cursor = githubUsersHelper.queryByUsername(uri.lastPathSegment.toString())
@@ -66,6 +68,7 @@ class GithubUsersProvider: ContentProvider() {
     ): Int = 0
 
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?): Int {
+        Log.e("delete", "${uri.lastPathSegment}")
         val deleted: Int = when(USERNAME_GITHUB_USER){
             uriMatcher.match(uri) -> githubUsersHelper.deleteByUsersname(uri.lastPathSegment.toString())
             else -> 0

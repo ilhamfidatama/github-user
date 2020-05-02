@@ -10,7 +10,9 @@ class DatabaseHelper(applicationContext: Context): SQLiteOpenHelper(applicationC
         private const val DATABASE_NAME = "githubUsers"
         private const val DATABASE_VERSION = 1
         private const val SQL_CREATE_TABLE ="CREATE TABLE ${DatabaseContract.GithubUsersColumn.TABLE_NAME} " +
-                "(${DatabaseContract.GithubUsersColumn.USERNAME} TEXT PRIMARY KEY, ${DatabaseContract.GithubUsersColumn.AVATAR_URL} TEXT)"
+                "(${DatabaseContract.GithubUsersColumn.USERNAME} TEXT, " +
+                "${DatabaseContract.GithubUsersColumn.AVATAR_URL} TEXT, " +
+                "${DatabaseContract.GithubUsersColumn.USER_ID} INTEGER)"
     }
 
     override fun onCreate(db: SQLiteDatabase) {

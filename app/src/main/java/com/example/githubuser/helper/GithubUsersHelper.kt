@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.example.githubuser.contract.DatabaseContract.GithubUsersColumn.Companion.TABLE_NAME
-import com.example.githubuser.contract.DatabaseContract.GithubUsersColumn.Companion.USERNAME
+import com.example.githubuser.contract.DatabaseContract.GithubUsersColumn.Companion.USER_ID
 
 class GithubUsersHelper(applicationContext: Context) {
     private val dbHelper = DatabaseHelper(applicationContext)
@@ -27,9 +27,9 @@ class GithubUsersHelper(applicationContext: Context) {
 
     fun queryAll(): Cursor = db.query(DB_TABLE, null, null, null, null, null, null, null)
 
-    fun queryByUsername(username: String): Cursor = db.query(DB_TABLE, null, "$USERNAME = ?", arrayOf(username), null, null, null)
+    fun queryByUsername(userID: String): Cursor = db.query(DB_TABLE, null, "$USER_ID = ?", arrayOf(userID), null, null, null)
 
     fun save(values: ContentValues?): Long = db.insert(DB_TABLE, null, values)
 
-    fun deleteByUsersname(username: String): Int = db.delete(DB_TABLE, "$USERNAME = $username", null)
+    fun deleteByUsersname(userID: String): Int = db.delete(DB_TABLE, "$USER_ID = $userID", null)
 }
