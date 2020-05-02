@@ -15,7 +15,7 @@
     <string name="title_activity_apps_settings">Pengaturan</string>
     <string name="notification_header">Pemberitahuan</string>
     <string name="daily_title">Pemberitahuan Harian</string>
-    <string name="attachment_summary_on">pemberitahuan otomatis akan diberikan pada jam 10 pagi</string>
+    <string name="attachment_summary_on">pemberitahuan otomatis akan diberikan pada jam 9 pagi</string>
     <string name="attachment_summary_off">Notifikasi tidak aktif</string>
     <string name="daily_notification_text">jangan lupa untuk melihat informasi-informasi terbaru di aplikasi kami</string>
 </resources>

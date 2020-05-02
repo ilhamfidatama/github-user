@@ -23,6 +23,6 @@
     <string name="daily_key" translatable="false">daily</string>
     <string name="daily_title">Daily Notification</string>
     <string name="daily_notification_text">don\'t forget to see the latest information in our application</string>
-    <string name="attachment_summary_on">Automatic notification will be given at 10 am</string>
+    <string name="attachment_summary_on">Automatic notification will be given at 9 am</string>
     <string name="attachment_summary_off">Notifications off</string>
 </resources>
