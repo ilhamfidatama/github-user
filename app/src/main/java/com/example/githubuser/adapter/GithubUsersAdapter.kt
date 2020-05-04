@@ -22,6 +22,8 @@ class GithubUsersAdapter(val context: Context): RecyclerView.Adapter<GithubUsers
         notifyDataSetChanged()
     }
 
+    fun getUsers() = listGithubUsers
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(context)
         .inflate(R.layout.user_github_list, parent, false))
 
