@@ -1,87 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/darker_gray"
-    android:paddingTop="25dp"
+    android:paddingTop="15dp"
     tools:context=".DetailUserActivity">
 
     <ImageView
         android:id="@+id/btn_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="15dp"
-        android:contentDescription="@string/app_name" />
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="10dp"
+        tools:srcCompat="@drawable/ic_favorite_24dp" />
 
     <ImageView
         android:id="@+id/avatar_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/name_of_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/avatar_user"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:text="@string/name_of_user"
         android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/avatar_user"
+        app:layout_constraintStart_toStartOf="@+id/avatar_user"
+        app:layout_constraintTop_toBottomOf="@+id/avatar_user" />
 
     <TextView
         android:id="@+id/company_of_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name_of_user"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:text="@string/company"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/name_of_user"
+        app:layout_constraintStart_toStartOf="@+id/name_of_user"
+        app:layout_constraintTop_toBottomOf="@+id/name_of_user" />
 
-    <LinearLayout
-        android:id="@+id/follow_layout"
+
+    <TextView
+        android:id="@+id/total_followers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/company_of_user"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="7dp"
-        android:orientation="horizontal">
+        android:text="@string/followers"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/company_of_user" />
 
-        <TextView
-            android:id="@+id/total_followers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="@string/followers"
-            android:textColor="@android:color/white" />
+    <TextView
+        android:id="@+id/total_following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/following"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total_followers" />
 
-        <TextView
-            android:id="@+id/total_following"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/following"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/menu_follow"
         style="@style/Widget.MaterialComponents.TabLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/follow_layout"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total_following" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/follow_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/menu_follow"
-        android:background="@color/design_default_color_background" />
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/design_default_color_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_follow" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
