@@ -10,4 +10,8 @@
         android:title="@string/reminder_setting"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/favorite_users"
+        android:title="@string/favorite_users"
+        app:showAsAction="never" />
+
 </menu>

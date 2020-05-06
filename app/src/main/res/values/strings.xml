@@ -25,4 +25,5 @@
     <string name="daily_notification_text">don\'t forget to see the latest information in our application</string>
     <string name="attachment_summary_on">Automatic notification will be given at 9 am</string>
     <string name="attachment_summary_off">Notifications off</string>
+    <string name="favorite_users">Favorite Users</string>
 </resources>
